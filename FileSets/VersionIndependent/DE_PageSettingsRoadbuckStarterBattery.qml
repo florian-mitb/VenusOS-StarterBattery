@@ -15,6 +15,15 @@ MbPage {
 								name: qsTr ("Starterbatterie auf Hauptseite anzeigen")
 								writeAccessLevel: User.AccessUser
 						}
+			MBEditBox {
+					description: qsTr ("Device")
+		item
+		{
+			bind: Utils.path (bindPrefixRoadbuckMods, "/StarterBattery/Device")
+			
+		}
+					writeAccessLevel: User.AccessUser
+			}
 
 			MbSpinBox {
 					description: qsTr ("Niedrige Spannung")

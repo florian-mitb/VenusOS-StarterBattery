@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#	
+#	Setup script (install/uninstall)
+#
+# this script will accept the following commands on the command line:
+#	setup install
+#	setup uninstall
+#	setup reinstall (used to reinstall after Venus OS update)
+
+packageLogFile="/var/log/starterbattery/current"
+
+
+
+# GitHub account info - fill in as appropriate
+# to include this package in SetupHelper automatic updates
+packageGitHubUser="florian-mitb"
+packageGitHubBranch="main"
+
+#### end of lines to include SetupHelper
+# tell CommonResources to:
+#	prompt for install/uninstall
+#	auto install or auto uninstall
+#	then exit
+#	IncludeHelpers will NOT return here !
+
+standardPromptAndActions='yes'
+
+#### following line incorporates helper resources into this script
+source "/data/SetupHelper/HelperResources/IncludeHelpers"
+#### end of lines to include helper resources
+
+./files/update_dbus_settings.sh

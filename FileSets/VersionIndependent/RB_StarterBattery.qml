@@ -6,7 +6,10 @@ import QtQuick 1.1
 Rectangle {
   //id: StarterBattery
 // MODIFY THIS LINE WITH YOUR PATH TO MEASUREMENT FROM STARTERBATTERY !!!
-VBusItem { id: starterBatteryVoltage; bind:("com.victronenergy.battery.ttyUSB3/Dc/1/Voltage")} //check the path to your battery measurement with dbus-spy
+VBusItem { id: device; bind:("com.victronenergy.settings/Settings/RoadbuckMods/StarterBattery/Device")}
+
+//VBusItem { id: starterBatteryVoltage; bind:("com.victronenergy.battery.ttyUSB3/Dc/1/Voltage")} //check the path to your battery measurement with dbus-spy
+VBusItem { id: starterBatteryVoltage; bind:("com.victronenergy.battery."+device.value)} //check the path to your battery measurement with dbus-spy
 property string basicColor: "purple"
 property string lowColor: "orange"
 property string criticalColor: "red"
